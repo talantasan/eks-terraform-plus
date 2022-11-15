@@ -1,5 +1,5 @@
 profile                  = "project1"
-region                   = "us-west-2"
+region                   = "us-east-1"
 availability_zones_count = 2
 
 project = "talant-dev"
