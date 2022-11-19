@@ -1,0 +1,6 @@
+*tfvars*
+*terraform.lock.hcl*
+terraform-provider*
+*tfstate*
+*backend*
+01-backend.tf

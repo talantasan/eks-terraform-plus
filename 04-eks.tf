@@ -78,3 +78,16 @@ resource "aws_security_group_rule" "cluster_outbound" {
   to_port                  = 65535
   type                     = "egress"
 }
+
+resource "null_resource" "set-kubeconfig" {
+ depends_on = [
+   aws_eks_cluster.this
+ ]
+ triggers = {
+   always_run = "${timestamp()}"
+ }
+ 
+ provisioner "local-exec" {
+   command = "aws eks --region us-east-1 update-kubeconfig --name ${aws_eks_cluster.this.name} --profile project1"
+ }
+}

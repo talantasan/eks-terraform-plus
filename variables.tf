@@ -38,7 +38,7 @@ variable "tags" {
   }
 }
 
-variable "profile" {
+variable "myprofile" {
     type = string
     default = ""
 }
