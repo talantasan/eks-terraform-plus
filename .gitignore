@@ -4,3 +4,4 @@ terraform-provider*
 *tfstate*
 *backend*
 01-backend.tf
+*.terraform*
