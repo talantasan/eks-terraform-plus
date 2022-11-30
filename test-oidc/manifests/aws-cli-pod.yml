@@ -1,0 +1,17 @@
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: aws-cli
+  labels:
+    app: apple
+spec:
+  serviceAccountName: my-test
+  containers:
+    - name: aws-cli-container
+      image: amazon/aws-cli
+      command: ["/bin/bash", "-c", "--"]
+      args: ["while true; do sleep 30; done"]
+  tolerations:
+    - operator: "Exists"
+      effect: NoSchedule
