@@ -1,0 +1,8 @@
+provider: aws
+serviceAccount:
+  create: true
+  name: external-dns
+  annotations: 
+    eks.amazonaws.com/role-arn: ${external_dns_role}
+
+  

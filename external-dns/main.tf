@@ -3,14 +3,17 @@ module "nginx_ingress_namespace"{
     chart_name  = "external-dns"
 }
 
-# This chart will create NLB on AWS along with nginx-ingress
-resource "helm_release" "nginx_ingress" {
+resource "helm_release" "external_dns" {
   name       = "external-dns"
   chart      = "./chart"
   version    = "6.12.1"
   namespace  = "external-dns"
 
   values = [
-    "${file("./values.yml")}"
+    templatefile("./values.yml", 
+      { 
+      external_dns_role = local.external_dns_role_arn
+      }
+    )
   ]
 }

@@ -10,6 +10,6 @@ spec:
     - name: banana-app
       image: hashicorp/http-echo
       args:
-        - "-text=banana"
+        - "-text=talant"
 
 

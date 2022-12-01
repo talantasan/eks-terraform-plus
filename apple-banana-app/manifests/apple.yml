@@ -10,5 +10,5 @@ spec:
     - name: apple-app
       image: hashicorp/http-echo
       args:
-        - "-text=apple"
+        - "-text=samara"
 

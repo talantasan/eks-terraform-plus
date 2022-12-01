@@ -1,5 +1,5 @@
 data "aws_iam_openid_connect_provider" "external_dns" {
-    arn = "arn:aws:iam::543987887526:oidc-provider/oidc.eks.us-east-1.amazonaws.com/id/4D7EC946446B94024B1368B29B8C4EC9"
+    arn = "arn:aws:iam::543987887526:oidc-provider/oidc.eks.us-east-1.amazonaws.com/id/946DBCD9CC2B1C3DC8E7A5644889977C"
 }
 
 output "oidc_data" {
