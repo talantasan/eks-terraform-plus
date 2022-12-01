@@ -12,7 +12,9 @@ resource "helm_release" "external_dns" {
   values = [
     templatefile("./values.yml", 
       { 
-      external_dns_role = local.external_dns_role_arn
+      external_dns_role = local.var_external_dns_role_arn
+      text_owner_id = local.var_textOwnerId
+      domain_filters = local.var_domainFilters 
       }
     )
   ]

@@ -9,18 +9,21 @@ metadata:
     nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
 spec:
   rules:
-  - http:
+  - host: "apple.talantzon.com"
+    http:
       paths:
-      - path: /apple
-        pathType: Prefix
+      - pathType: Prefix
+        path: /
         backend:
           service:
             name: apple-service
             port:
               number: 5678
-            
-      - path: /banana
-        pathType: Prefix
+  - host: "banana.talantzon.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
         backend:
           service:
             name: banana-service

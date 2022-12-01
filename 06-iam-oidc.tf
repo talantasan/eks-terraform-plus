@@ -63,3 +63,11 @@ resource "aws_iam_role_policy_attachment" "oidc_s3_policy_attach" {
 output "oidc_role_arn" {
   value = aws_iam_role.oidc_role.arn
 }
+
+output "oidc_url" {
+  value = aws_iam_openid_connect_provider.myeks.url
+}
+
+output "oidc_arn" {
+  value = aws_iam_openid_connect_provider.myeks.arn
+}

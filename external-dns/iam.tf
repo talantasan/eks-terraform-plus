@@ -1,22 +1,14 @@
-data "aws_iam_openid_connect_provider" "external_dns" {
-    arn = "arn:aws:iam::543987887526:oidc-provider/oidc.eks.us-east-1.amazonaws.com/id/946DBCD9CC2B1C3DC8E7A5644889977C"
-}
-
-output "oidc_data" {
-    value = "${replace(data.aws_iam_openid_connect_provider.external_dns.url, "https://", "")}:sub"
-}
-
 data "aws_iam_policy_document" "oid_assum_role_policy" {
   statement {
     actions = ["sts:AssumeRoleWithWebIdentity"]
     effect  = "Allow"
     condition {
       test  = "StringEquals"
-      variable = "${replace(data.aws_iam_openid_connect_provider.external_dns.url, "https://", "")}:sub"
-      values  = ["system:serviceaccount:external-dns:externaldns"]
+      variable = "${replace(data.terraform_remote_state.infra.outputs.oidc_url, "https://", "")}:sub"
+      values  = ["system:serviceaccount:external-dns:external-dns"]
     }
     principals {
-      identifiers = [data.aws_iam_openid_connect_provider.external_dns.arn]
+      identifiers = [data.terraform_remote_state.infra.outputs.oidc_arn]
       type  = "Federated"
     }
   }
