@@ -10,3 +10,8 @@ externalDatabase:
   database: ${mydatabase}
 externalDatabase:
   port: 3306
+ingress:
+  enabled: true
+  hostname: {var_ingress_hostname}
+
+

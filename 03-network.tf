@@ -15,6 +15,7 @@ resource "aws_vpc" "this" {
   }
 }
 
+
 # Public Subnets
 resource "aws_subnet" "public" {
   count = var.availability_zones_count
