@@ -1,0 +1,12 @@
+mariadb:
+  enabled: false
+externalDatabase:
+  host: ${rds_endpoint}
+externalDatabase:
+  user: ${myuser}
+externalDatabase:
+  password: ${mypassword}
+externalDatabase:
+  database: ${mydatabase}
+externalDatabase:
+  port: 3306

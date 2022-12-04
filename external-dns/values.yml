@@ -2,7 +2,8 @@ provider: aws
 aws:
   zoneType: public
 txtOwnerId: ${text_owner_id}
-domainFilters[0]: ${domain_filters}
+domainFilters: 
+  - ${domain_filters}
 policy: sync
 registry: txt
 logLevel: debug #for detailed logs
