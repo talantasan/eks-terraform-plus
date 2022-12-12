@@ -3,15 +3,16 @@ mariadb:
 externalDatabase:
   host: ${rds_endpoint}
 externalDatabase:
-  user: ${myuser}
+  user: ${db_user}
 externalDatabase:
-  password: ${mypassword}
+  password: ${db_pass}
 externalDatabase:
-  database: ${mydatabase}
+  database: ${db_name}
 externalDatabase:
   port: 3306
 ingress:
   enabled: true
-  hostname: {var_ingress_hostname}
+  hostname: {ingress_hostname}
+allowOverrideNone: true
 
 

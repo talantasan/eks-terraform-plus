@@ -10,6 +10,14 @@ resource "helm_release" "wordpress" {
   namespace  = "talant-wordpress"
 
   values = [
-    "${file("./values.yml")}"
+    templatefile("./values.yml", 
+      { 
+      rds_endpoint = aws_
+      db_user = local.var_db_user
+      db_pass = local.var_db_pass 
+      db_name = local.var_db_name
+      ingress_hostname = local.var_ingress_hostname
+      }
+    )
   ]
 }
