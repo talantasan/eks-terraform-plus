@@ -7,7 +7,13 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
+  tls:
+  - secretName: apple-banana-tls-secret
+    hosts:
+    - apple.talantzon.com
+    - banana.talantzon.com
   rules:
   - host: "apple.talantzon.com"
     http:
